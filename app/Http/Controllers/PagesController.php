@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class PagesController extends Controller
@@ -59,6 +60,17 @@ class PagesController extends Controller
         $student->address = $request->address;
         $student->age = $request->age;
         $student->save();
+        return redirect('/list');
+    }
+
+    public function delete($id) {
+        $student = Student::where('id', $id)->first();
+
+        if(File::exists('storage/image/'. $student->image)) {
+            File::delete('storage/image/'.$student->image);
+        }
+
+        $student->delete();
         return redirect('/list');
     }
 }

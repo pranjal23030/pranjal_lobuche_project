@@ -23,6 +23,7 @@
                 <td>{{$student->age}}</td>
                 <td><img src="{{asset('storage/image/'.$student->image)}}"></td>
                 <td><a href="{{url('/edit/'.$student->id)}}">Edit</a></td>
+                <td><a href="{{url('/delete/'.$student->id)}}" onclick="return confirm('Are you sure you want to delete?')">Delete</a> </td>
             </tr>
         @endforeach
     </table>
