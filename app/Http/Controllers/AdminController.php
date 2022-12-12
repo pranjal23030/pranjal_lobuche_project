@@ -24,11 +24,19 @@ class AdminController extends Controller
     }
 
     public function store(Request $request){
+
+        //Validate
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+        ]);
         $user = new User();
         $user->name= $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
+        return redirect('/admin/login')->with('success','Registered successfully');
     }
 
     public function loginForm(Request $request) {

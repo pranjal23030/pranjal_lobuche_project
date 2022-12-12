@@ -60,7 +60,7 @@ class PagesController extends Controller
         $student->address = $request->address;
         $student->age = $request->age;
         $student->save();
-        return redirect('/list');
+        return route('list');
     }
 
     public function delete($id) {
@@ -74,3 +74,33 @@ class PagesController extends Controller
         return redirect('/list');
     }
 }
+
+
+//⇒ Make database studentmanagement
+//
+//⇒ php artisan make:migration create_students_table --create=students
+//
+//⇒ $table->id();
+//            $table->string('studname');
+//            $table->string('course');
+//            $table->integer('fee');
+//
+//⇒ php artisan migrate
+//
+//⇒ php artisan make:controller StudentController --resource --model=Student
+//
+//
+//⇒ For Image halnako laagi
+//php artisan storage:link
+//
+//composer require intervention/image
+
+
+
+//cd ..
+//cd ..
+//cd xampp..
+//cd htdocs
+//
+//composer create-project --prefer-dist laravel/laravel StuMS
+
