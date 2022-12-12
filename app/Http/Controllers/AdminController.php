@@ -51,4 +51,8 @@ class AdminController extends Controller
         Auth::logout();
         return redirect('/admin/login');
     }
+
+    public function forgot_password(){
+        return view(('forgot_password'));
+    }
 }

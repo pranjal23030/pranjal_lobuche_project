@@ -38,3 +38,5 @@
         Route::get('admin', [AdminController::class, 'index']);
         Route::get('logout', [AdminController::class, 'logout']);
     });
+
+    Route::get('/forgot_password', [\App\Http\Controllers\AdminController::class, 'forgot_password']);
